@@ -31,5 +31,10 @@ namespace Student_teacher
         private Int32 _id;
         private String _name;
         private String _surname;
+
+        public static implicit operator List<object>(Student v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
