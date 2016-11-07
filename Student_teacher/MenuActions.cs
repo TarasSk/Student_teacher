@@ -32,7 +32,8 @@ namespace Student_teacher
                     string studentSurname = Console.ReadLine();
                     _students.Add(new Student(_studenId, studentName, studentSurname));
                     Console.WriteLine("Add another student? Y/N");
-                    key = Console.ReadLine()[0];
+                    var readLine = Console.ReadLine();
+                    if (readLine != null) key = readLine[0];
                 } while (key == 'y' || key == 'Y');
 
                 teachers.Add(new Teacher(_teacherId, teacherName, teacherSurname, _students));
@@ -62,12 +63,18 @@ namespace Student_teacher
 
         public void Show(List<Teacher> teachers)
         {
+            //var sortedlist = from teacher in teachers
+            //    from student in teacher.Students
+            //    orderby student descending
+            //    select teacher;
+              
             Console.Clear();
             foreach (var th in teachers)
             {
                 Console.WriteLine("Teacher ID: "+th.Id + "\t Teacher Name: " + th.Name+"\t Teacher Surname: "+th.Surname);
                 Console.WriteLine();
-                foreach (var st in th.Students)
+                var sortedstud = th.Students.OrderBy(x => x.Name);
+                foreach (var st in sortedstud)
                 {
                     Console.WriteLine("Student ID: "+st.Id + "\t Student Name: " + st.Name + "\t Student Surname: " + st.Surname);
                 }
