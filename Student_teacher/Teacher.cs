@@ -8,7 +8,13 @@ namespace Student_teacher
 {
     class Teacher
     {
-        public Teacher(){ }
+        public Teacher(Int32 id, String name, String surname, List<Student> students)
+        {
+            _id = id;
+            _name = name;
+            _surname = surname;
+            _students = students;
+        }
         private Int32 _id;
         private String _name;
         private String _surname;

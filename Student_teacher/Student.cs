@@ -9,8 +9,11 @@ namespace Student_teacher
 {
     class Student
     {
-        public Student()
+        public Student(Int32 id,String name,String surname)
         {
+            _id = id;
+            _name = name;
+            _surname = surname;
         }
         public Int32 Id
         {
@@ -32,9 +35,5 @@ namespace Student_teacher
         private String _name;
         private String _surname;
 
-        public static implicit operator List<object>(Student v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
